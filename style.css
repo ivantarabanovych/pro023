@@ -36,3 +36,11 @@ body{
 .header-button:hover {
     background: linear-gradient(45deg, #ff9800, #f44336);
 }
+
+.new-element{
+    background: #7b7d7b;
+    color: #f0f0d8;
+    padding: 10px 20px;
+    margin: 10px 0;
+    text-align: center;
+}
