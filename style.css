@@ -1,0 +1,38 @@
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: linear-gradient(to bottom right, #f0f0d8, #1f6e02);
+    margin: 0;
+}
+
+.header-button{
+    font-size: 14px;
+    padding: 16px 20px;
+    color: aliceblue;
+    background: #02abff;
+    border: 1px solid rgb(1, 55, 5);
+    border-radius: 20px;
+    cursor: pointer;
+    background-size: 200% 200%;
+    transition: background 0.3s ease;
+    animation: gradient-animation 3s ease infinite;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.header-button:hover {
+    background: linear-gradient(45deg, #ff9800, #f44336);
+}
