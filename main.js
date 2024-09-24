@@ -36,8 +36,29 @@ const addTask = () =>{
         deleteBtn.style.marginLeft = '10px';
         deleteBtn.addEventListener('click', () => deleteTask(listItem));
 
+        const colorBtn = document.createElement('button');
+        colorBtn.textContent = 'Change color';
+        colorBtn.addEventListener('click', () =>{
+            taskContent.style.color = taskContent.style.color === 'red' ? 'black' : 'red';
+        });
+
+        const sizeBtn = document.createElement('button');
+        sizeBtn.textContent = 'Change size';
+        sizeBtn.addEventListener('click', () => {
+            taskContent.style.fontSize = taskContent.style.fontSize === '16px' ? '20px' : '16px';
+        });
+
+        const bgColorBtn = document.createElement('button');
+        bgColorBtn.textContent = 'Change background';
+        bgColorBtn.addEventListener('click', () =>{
+            taskContent.style.backgroundColor = taskContent.style.backgroundColor === 'blue' ? 'red' : 'blue';
+        })
+
         listItem.appendChild(taskContent);
         listItem.appendChild(deleteBtn);
+        listItem.appendChild(colorBtn);
+        listItem.appendChild(sizeBtn);
+        listItem.appendChild(bgColorBtn);
 
         taskList.appendChild(listItem);
 
