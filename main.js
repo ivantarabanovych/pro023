@@ -1,26 +1,42 @@
-const heading = document.createElement('h1');
-heading.textContent = 'List element:';
+const heading = document.createElement("h1");
+heading.textContent = "Task list:";
 document.body.appendChild(heading);
 
-const button = document.createElement('button');
-button.classList.add('header-button');
-button.textContent = 'Add element';
-document.body.appendChild(button);
+const taskButton = document.createElement("button");
+taskButton.classList.add("add-task");
+taskButton.textContent = "Add task";
+document.body.appendChild(taskButton);
 
-const container = document.createElement('div');
-container.classList.add('container-elements');
-document.body.appendChild(container);
+const taskInput = document.createElement("input");
+taskInput.setAttribute("placeholder", "add new task...");
+document.body.appendChild(taskInput);
 
+const filterInput = document.createElement("input");
+filterInput.setAttribute("placeholder", "Enter text for filter...");
+document.body.appendChild(filterInput);
 
-button.addEventListener('click', () =>{
-    const newElement = document.createElement('div');
-    newElement.classList.add('new-element');
+const taskList = document.createElement("li");
+document.body.appendChild(taskList);
 
-    const elementCount = container.childElementCount + 1;
-    newElement.textContent = `Елемент ${elementCount}`;
+const addTask = () => {
+  const taskText = taskInput.value.trim();
+  if (taskText) {
+    const listItem = document.createElement("li");
+    listItem.textContent = taskText;
+    taskList.appendChild(listItem);
+    taskInput.value = "";
+    filterTasks();
+  }
+};
+const filterTasks = () => {
+  const filterText = filterInput.value.toLowerCase();
+  const items = taskList.getElementsByTagName("li");
 
-    container.appendChild(newElement);
-});
+  for (let item of items) {
+    const text = item.textContent.toLowerCase();
+    item.style.display = text.includes(filterText) ? "" : "none";
+  }
+};
 
-
-
+taskButton.addEventListener('click', addTask);
+filterInput.addEventListener('input', filterTasks);
